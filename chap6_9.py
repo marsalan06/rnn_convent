@@ -47,7 +47,24 @@ x_train=data[:train_samp]
 y_train=labels[:train_samp]
 x_val=data[train_samp:train_samp+val_samp]
 y_val=labels[train_samp:train_samp+val_samp]
-print(x_train[133],y_train[133])
+#print(x_train[133],y_train[133])
+
+#6.10
+#https://nlp.stanford.edu/projects/glove/
+glove_dir="C:/Users/arsal/Desktop/anaconda/ml/quater 3/CHAP6/glove"
+embeddings_index={}
+file_glove=open(os.path.join(glove_dir,'glove.6B.100d.txt'),encoding="utf8") #open file
+for line in file_glove: 
+    values=line.split() #split after each line in list 
+    word=values[0] #the first valve of list is the word
+    coefs=np.asarray(values[1:],dtype='float32') #next values in list is the vector 
+    embeddings_index[word]=coefs #saved the word and vector as key value pair, 400000 words
+file_glove.close()
+
+
+# print(line)
+# print(values)
+# print(word)
 
 
 
